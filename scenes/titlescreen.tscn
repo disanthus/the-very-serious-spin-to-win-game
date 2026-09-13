@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://depwgfeiehsim"]
+
+[ext_resource type="Script" uid="uid://syb1j2c2drhx" path="res://scripts/titlescreen.gd" id="1_3jj3l"]
+[ext_resource type="Texture2D" uid="uid://d4kn75dvc30fx" path="res://textures/titlescreen.png" id="1_6d6rd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3jj3l"]
+size = Vector3(1, 1, 0.49365234)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt55a"]
+albedo_texture = ExtResource("1_6d6rd")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t7v6v"]
+
+[node name="Node3D" type="Node3D" unique_id=499754719]
+script = ExtResource("1_3jj3l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=197492008]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=763540897]
+transform = Transform3D(1, 0, 0, 0, 0.99952555, -0.030800188, 0, 0.030800188, 0.99952555, 0, 0, -0.25317383)
+shape = SubResource("BoxShape3D_3jj3l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1421877085]
+transform = Transform3D(1, 0, 0, 0, -0.03936446, -0.9992249, 0, 0.9992249, -0.03936446, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_tt55a")
+mesh = SubResource("PlaneMesh_t7v6v")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=31000743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6123352)
+fov = 61.7
+near = 0.027
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=987791416]
+transform = Transform3D(1, 0, 0, 0, 0.9501953, 0.31165507, 0, -0.31165507, 0.9501953, 0, 0.47106552, 1.6106684)
+spot_range = 34.38454

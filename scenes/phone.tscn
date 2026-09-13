@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://j6tu7u5mwkku"]
+
+[sub_resource type="GDScript" id="GDScript_h0hps"]
+script/source = "extends Node3D
+signal isvisible
+signal isnotvisible
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	emit_signal(\"isvisible\")
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	emit_signal(\"isnotvisible\")
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88pm7"]
+size = Vector3(0.21013641, 0.17767334, 0.58502626)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_h0hps"]
+albedo_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lnqov"]
+material = SubResource("ORMMaterial3D_h0hps")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_08mii"]
+albedo_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_88pm7"]
+material = SubResource("ORMMaterial3D_08mii")
+
+[node name="Node3D" type="Node3D" unique_id=779078768]
+script = SubResource("GDScript_h0hps")
+
+[node name="phone" type="Area3D" parent="." unique_id=1753005789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.022522956)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="phone" unique_id=2118801353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0021182299, 0.06161499, -0.09067044)
+shape = SubResource("BoxShape3D_88pm7")
+
+[node name="bottom" type="MeshInstance3D" parent="phone" unique_id=312872614]
+transform = Transform3D(0.2, 0, 0, 0, 0.027, 0, 0, 0, 0.3, 0, -0.008694217, 0.04383529)
+mesh = SubResource("BoxMesh_lnqov")
+
+[node name="top" type="MeshInstance3D" parent="phone" unique_id=1104163945]
+transform = Transform3D(0.2, 0, 0, 0, 0.027899649, -0.11027672, 0, 0.011027671, 0.2789965, 0, 0.062139764, -0.22254317)
+mesh = SubResource("BoxMesh_88pm7")

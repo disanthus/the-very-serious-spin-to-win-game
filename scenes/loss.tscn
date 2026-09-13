@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://bioisayhdu4dw"]
+
+[ext_resource type="Texture2D" uid="uid://bgmyt4ajxymap" path="res://textures/pngtree-jail-prison-bars-vector-png-image_6665843.png" id="1_a5dxr"]
+[ext_resource type="Script" uid="uid://csg7bgbxgm5uu" path="res://scripts/loss.gd" id="1_py0ln"]
+[ext_resource type="Texture2D" uid="uid://cshqvj5v522nb" path="res://textures/Seamless-Wood-Texture-4-1024x768.jpg" id="2_jnws2"]
+[ext_resource type="Texture2D" uid="uid://b0rollhi16k67" path="res://textures/concrete_clean_0015_02_preview.jpg" id="3_trm4n"]
+[ext_resource type="PackedScene" uid="uid://bdcinkuyauskp" path="res://scenes/player.tscn" id="4_4j3gv"]
+[ext_resource type="PackedScene" uid="uid://j6tu7u5mwkku" path="res://scenes/phone.tscn" id="5_mxqno"]
+[ext_resource type="AudioStream" uid="uid://ckdtm6h2xubbu" path="res://audio/old city theme.ogg" id="7_0k05t"]
+[ext_resource type="PackedScene" uid="uid://1t1xs0jg28uj" path="res://prison bed.tscn" id="8_ba8ck"]
+[ext_resource type="PackedScene" uid="uid://pyicgvnruql4" path="res://volume_slider.tscn" id="9_l0dbl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3ipb"]
+size = Vector3(60, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hy7yk"]
+albedo_texture = ExtResource("1_a5dxr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_jnws2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_wewkj"]
+material = SubResource("StandardMaterial3D_lquwl")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yay3c"]
+size = Vector3(60, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soyy1"]
+albedo_texture = ExtResource("1_a5dxr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_euglv"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_jnws2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fsjny"]
+material = SubResource("StandardMaterial3D_euglv")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tya02"]
+size = Vector3(60, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb4ts"]
+albedo_texture = ExtResource("1_a5dxr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3rps"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_jnws2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_cp3ns"]
+material = SubResource("StandardMaterial3D_s3rps")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2vva"]
+size = Vector3(60, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhsmu"]
+albedo_texture = ExtResource("1_a5dxr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_363se"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_jnws2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_0pwd1"]
+material = SubResource("StandardMaterial3D_363se")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m28l2"]
+size = Vector3(60, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2s2qs"]
+albedo_texture = ExtResource("3_trm4n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsjeq"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_jnws2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_moddy"]
+material = SubResource("StandardMaterial3D_tsjeq")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0k05t"]
+size = Vector3(20.469147, 9.274414, 24.284119)
+
+[node name="Node3D" type="Node3D" unique_id=1549213779]
+script = ExtResource("1_py0ln")
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=281974536]
+transform = Transform3D(1, 0, 0, 0, 0.08383438, 0.9964797, 0, -0.9964797, 0.08383438, 0, 20.79498, -26.603262)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=147136296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_f3ipb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=1149738586]
+transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.008726203, 0, -0.017452406, 0.49992386, -0.24674988, -0.2815113, -6.699321)
+material_override = SubResource("StandardMaterial3D_hy7yk")
+mesh = SubResource("BoxMesh_wewkj")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=1008817417]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 6.3103905, 31.028631)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=1273180031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_yay3c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=538689027]
+transform = Transform3D(1, 0, 0, 0, 1, -3.7252903e-09, 0, 7.450581e-09, 0.5, -0.24674988, -0.2815113, -6.699321)
+material_override = SubResource("StandardMaterial3D_soyy1")
+mesh = SubResource("BoxMesh_fsjny")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=2093712442]
+transform = Transform3D(-4.371139e-08, -0.99649286, 0.08367787, 0, 0.08367787, 0.99649286, -1, 4.3558085e-08, -3.657676e-09, -29.643444, 20.79498, 0.7252531)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=1145362736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_tya02")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=1988735963]
+transform = Transform3D(1, 0, 0, 0, 1, -3.7252903e-09, 0, 7.450581e-09, 0.5, -0.24674988, -0.2815113, -6.699321)
+material_override = SubResource("StandardMaterial3D_hb4ts")
+mesh = SubResource("BoxMesh_cp3ns")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=433645004]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 29.167046, 6.113661, 2.4217978)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=1631798349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_d2vva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=1750299417]
+transform = Transform3D(1, 0, 0, 0, 1, -3.7252903e-09, 0, 7.450581e-09, 0.5, -0.24674988, -0.2815113, -6.699321)
+material_override = SubResource("StandardMaterial3D_vhsmu")
+mesh = SubResource("BoxMesh_0pwd1")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=244281537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809062, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1103875976]
+shape = SubResource("BoxShape3D_m28l2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=238450081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24674988, -0.20123672, 0.37652016)
+material_override = SubResource("StandardMaterial3D_2s2qs")
+mesh = SubResource("BoxMesh_moddy")
+
+[node name="Player" parent="." unique_id=1598935049 instance=ExtResource("4_4j3gv")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.464262, 16.626894)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1464121491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2260275, -10.088214)
+billboard = 2
+shaded = true
+double_sided = false
+text = "your debt piled up and you sold everything. with nothing left to gamble with, you began to pawn off items stolen from your friends and family for one last chance to win big..."
+font_size = 80
+uppercase = true
+autowrap_mode = 3
+justification_flags = 235
+width = 1000.0
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1645664947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.8565607, -7.742877)
+billboard = 2
+shaded = true
+double_sided = false
+text = "and now you're in jail"
+font_size = 100
+uppercase = true
+autowrap_mode = 3
+justification_flags = 235
+width = 1000.0
+
+[node name="phone" parent="." unique_id=779078768 instance=ExtResource("5_mxqno")]
+transform = Transform3D(2.519725, 0, 2.4291942, 0, 3.5, 0, -2.4291942, 0, 2.519725, -18.404894, 1.5988867, -17.38818)
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=1928405511]
+transform = Transform3D(0.94558686, 0, 0.32537016, 0, 1, 0, -0.32537016, 0, 0.94558686, -11.799585, 7.491316, -17.913242)
+text = "good thing you kept your phone. it's time to call your wife and beg for her to bail you out. (E)"
+font_size = 100
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1677161404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27936554, 0)
+stream = ExtResource("7_0k05t")
+volume_db = -20.0
+unit_size = 47.35
+autoplay = true
+parameters/looping = true
+
+[node name="phonearea" type="Area3D" parent="." unique_id=411332723]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="phonearea" unique_id=1015456441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.599594, 4.137207, -8.891418)
+shape = SubResource("BoxShape3D_0k05t")
+
+[node name="Node3D" parent="." unique_id=1989916308 instance=ExtResource("8_ba8ck")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -19.781895, 0, -21.377203)
+
+[node name="Control" type="Control" parent="." unique_id=287058241]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="volume_slider" parent="Control" unique_id=540994646 instance=ExtResource("9_l0dbl")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89400005
+anchor_right = 0.99600005
+anchor_bottom = 0.12200001
+offset_left = 8.111938
+offset_top = 16.0
+offset_right = -11.39209
+offset_bottom = -0.056007385
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="Control" unique_id=505081608]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88400006
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 0.117000006
+offset_left = 10.631958
+offset_top = 0.26399994
+offset_right = -5.0
+offset_bottom = 0.18399811
+text = "Master Volume"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="phonearea" to="." method="_on_phonearea_body_entered"]
+[connection signal="body_exited" from="phonearea" to="." method="_on_phonearea_body_exited"]

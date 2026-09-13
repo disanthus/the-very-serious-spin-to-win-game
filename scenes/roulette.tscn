@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cs05nswbrninv"]
+
+[ext_resource type="Script" uid="uid://b7fg8fvnxbym4" path="res://scripts/roulette.gd" id="1_mxkhv"]
+[ext_resource type="PackedScene" uid="uid://bk3en1w4c7q3h" path="res://scenes/desk.tscn" id="1_vkh0h"]
+[ext_resource type="PackedScene" uid="uid://cc1icoocvp46s" path="res://scenes/thewheel.tscn" id="3_uqyis"]
+[ext_resource type="Texture2D" uid="uid://b0rollhi16k67" path="res://textures/concrete_clean_0015_02_preview.jpg" id="4_jyskt"]
+[ext_resource type="Texture2D" uid="uid://b13o6jnuees5" path="res://textures/summer-landscape-sky-clouds-7acf0bce5a08bcb431048e6d1d1ca1f1.jpg" id="5_iqt6o"]
+[ext_resource type="AudioStream" uid="uid://bdiwewddxwsql" path="res://audio/Juhani Junkala - Epic Boss Battle [Seamlessly Looping].wav" id="6_iqt6o"]
+[ext_resource type="PackedScene" uid="uid://pyicgvnruql4" path="res://volume_slider.tscn" id="7_dnls6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mxkhv"]
+size = Vector3(15.404663, 13.344452, 0.001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qna4d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81wp0"]
+metallic = 0.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnls6"]
+albedo_texture = ExtResource("4_jyskt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4826q"]
+albedo_texture = ExtResource("5_iqt6o")
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k6evh"]
+material = SubResource("StandardMaterial3D_4826q")
+size = Vector3(60, 2, 60)
+
+[node name="Node3D" type="Node3D" unique_id=1194748175]
+script = ExtResource("1_mxkhv")
+
+[node name="desk" parent="." unique_id=1489680260 instance=ExtResource("1_vkh0h")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=976874888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42294884, 8.988582, 4.571105)
+
+[node name="screen" type="StaticBody3D" parent="." unique_id=883262007]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -3.8148801, -0.09418392, 2.8867855)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="screen" unique_id=613093907]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.98861766, 0.1504499, 0, -0.1504499, 0.98861766, 13.966549, 29.549927, -4.488946)
+shape = SubResource("BoxShape3D_mxkhv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="screen" unique_id=43705250]
+transform = Transform3D(17.999996, 0, 0, 0, 12.999998, 0, 0, 0, 0.4999999, 13.607743, 30.333792, -4.2623587)
+mesh = SubResource("BoxMesh_qna4d")
+surface_material_override/0 = SubResource("StandardMaterial3D_81wp0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2054896561]
+transform = Transform3D(1, 0, 0, 0, 0.91656524, 0.39988518, 0, -0.39988518, 0.91656524, 0, 23.279762, 34.683155)
+
+[node name="moneylabel" type="Label3D" parent="." unique_id=775168282]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.88750994, -0.46078852, 0, 0.46078852, 0.88750994, -1.2389994, 10.551337, 2.1004608)
+billboard = 1
+text = "testinghehe"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=542212931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3596401, 7.4725456, 1.7014751)
+layers = 8
+text = "E to spin"
+
+[node name="Wheel" parent="." unique_id=1061563642 instance=ExtResource("3_uqyis")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.20258927, 9, 1.6632969)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=178001986]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -0.5, 0, 1, -2.1855694e-08, -0.24674988, 7.788739, -13.522271)
+material_override = SubResource("StandardMaterial3D_dnls6")
+mesh = SubResource("BoxMesh_k6evh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1306225240]
+stream = ExtResource("6_iqt6o")
+volume_db = -30.0
+autoplay = true
+
+[node name="Control" type="Control" parent="." unique_id=1141339615]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="volume_slider" parent="Control" unique_id=540994646 instance=ExtResource("7_dnls6")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89400005
+anchor_right = 0.99600005
+anchor_bottom = 0.12200001
+offset_left = 8.111938
+offset_top = 16.0
+offset_right = -11.39209
+offset_bottom = -0.056007385
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="Control" unique_id=47336123]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88400006
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 0.117000006
+offset_left = 10.631958
+offset_top = 0.26399994
+offset_right = -5.0
+offset_bottom = 0.18399811
+text = "Master Volume"
+horizontal_alignment = 1

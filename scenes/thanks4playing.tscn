@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d2i77s7es4v2p"]
+
+[ext_resource type="Texture2D" uid="uid://b568fb2endy7o" path="res://textures/endscreen.png" id="1_5ydon"]
+[ext_resource type="Script" uid="uid://cgyn2h1w7axf0" path="res://scripts/thanks_4_playing.gd" id="1_wq2r4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wq2r4"]
+size = Vector3(1, 1, 0.49365234)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgqbx"]
+albedo_texture = ExtResource("1_5ydon")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4vnci"]
+
+[node name="Node3D" type="Node3D" unique_id=687698555]
+script = ExtResource("1_wq2r4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=471035724]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2050880796]
+transform = Transform3D(1, 0, 0, 0, 0.99952555, -0.030800188, 0, 0.030800188, 0.99952555, 0, 0, -0.25317383)
+shape = SubResource("BoxShape3D_wq2r4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=223405651]
+transform = Transform3D(1, 0, 0, 0, -0.03936446, -0.9992249, 0, 0.9992249, -0.03936446, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hgqbx")
+mesh = SubResource("PlaneMesh_4vnci")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1645189850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0396412, 1.6165408)
+fov = 61.7
+near = 0.027
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2121109668]
+transform = Transform3D(1, 0, 0, 0, 0.9501953, 0.31165507, 0, -0.31165507, 0.9501953, 0, 0.47106552, 1.6106684)
+spot_range = 34.38454

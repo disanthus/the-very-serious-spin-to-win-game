@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cc1icoocvp46s"]
+
+[ext_resource type="Script" uid="uid://dop4fh1ya4env" path="res://scripts/thewheel.gd" id="1_mxwib"]
+[ext_resource type="Texture2D" uid="uid://b1ddi86pukyix" path="res://textures/wheel.png" id="1_tqe33"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mxwib"]
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxwib"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("1_tqe33")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x3gg0"]
+
+[sub_resource type="Animation" id="Animation_m24tx"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.99999994)
+
+[sub_resource type="Animation" id="Animation_sdq7o"]
+resource_name = "spinnn"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.99999994, 0.26666668, 1, 0, 0, -0.68602777, 0.72757524, 0.5, 1, 0, 0, 0.99928814, 0.037725, 0.76666665, 1, 0, 0, 0.57258946, 0.81984216, 1, 1, 0, 0, -0.008848754, 0.9999608)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2uxvd"]
+_data = {
+&"RESET": SubResource("Animation_m24tx"),
+&"spinnn": SubResource("Animation_sdq7o")
+}
+
+[node name="Wheel" type="Node3D" unique_id=1061563642]
+script = ExtResource("1_mxwib")
+
+[node name="Actual Wheel" type="StaticBody3D" parent="." unique_id=1583153767]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Actual Wheel" unique_id=413751958]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0009582713, 0)
+shape = SubResource("CylinderShape3D_mxwib")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Actual Wheel" unique_id=675345832]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0, 0, 0.024604678)
+material_override = SubResource("StandardMaterial3D_mxwib")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_x3gg0")
+
+[node name="Spin" type="AnimationPlayer" parent="Actual Wheel" unique_id=1525223272]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2uxvd")

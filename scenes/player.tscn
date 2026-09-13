@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bdcinkuyauskp"]
+
+[ext_resource type="Script" uid="uid://xntgqyswq8ga" path="res://scripts/player.gd" id="1_4flbx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sh265"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4flbx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4flbx"]
+metallic = 1.0
+stencil_flags = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4flbx"]
+size = Vector3(1, 1, 1.3446655)
+
+[sub_resource type="Environment" id="Environment_3vyb7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1598935049 groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=440694240]
+shape = SubResource("BoxShape3D_sh265")
+debug_color = Color(0.28477985, 0.5787424, 0.690468, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=741248370]
+mesh = SubResource("BoxMesh_4flbx")
+surface_material_override/0 = SubResource("StandardMaterial3D_4flbx")
+
+[node name="Interact" type="Area3D" parent="." unique_id=1618060374]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact" unique_id=323708341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17233276)
+shape = SubResource("BoxShape3D_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1317155965]
+transform = Transform3D(1, 0, 0, 0, 0.99961936, 0.027590157, 0, -0.027590157, 0.99961936, 0.037905157, 1.0477469, -0.39811802)
+environment = SubResource("Environment_3vyb7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera3D" unique_id=1493171765]
+transform = Transform3D(1, 0, 0, 0, 0.8818143, -0.47159684, 0, 0.47159684, 0.8818143, 0.30630562, -0.17139316, 0.21802425)
+shape = SubResource("BoxShape3D_g2els")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2022291794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1359748, 0.9842962, 1.4017304)
+light_energy = 12.704
+light_indirect_energy = 16.0
+spot_range = 23.33
+spot_attenuation = 0.44
+spot_angle = 63.33

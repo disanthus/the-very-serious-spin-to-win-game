@@ -1,0 +1,298 @@
+[gd_scene format=3 uid="uid://sfjgsvpiq1em"]
+
+[ext_resource type="Script" uid="uid://ds8e8vk48wax" path="res://scripts/win.gd" id="1_5vxan"]
+[ext_resource type="PackedScene" uid="uid://bdcinkuyauskp" path="res://scenes/player.tscn" id="1_r4oei"]
+[ext_resource type="Texture2D" uid="uid://cshqvj5v522nb" path="res://textures/Seamless-Wood-Texture-4-1024x768.jpg" id="2_iiocm"]
+[ext_resource type="Texture2D" uid="uid://b0rollhi16k67" path="res://textures/concrete_clean_0015_02_preview.jpg" id="3_yxbqr"]
+[ext_resource type="Texture2D" uid="uid://b13o6jnuees5" path="res://textures/summer-landscape-sky-clouds-7acf0bce5a08bcb431048e6d1d1ca1f1.jpg" id="4_tylv2"]
+[ext_resource type="PackedScene" uid="uid://bk3en1w4c7q3h" path="res://scenes/desk.tscn" id="4_yxbqr"]
+[ext_resource type="PackedScene" uid="uid://cc1icoocvp46s" path="res://scenes/thewheel.tscn" id="7_531e2"]
+[ext_resource type="Texture2D" uid="uid://31mv6naj5rpc" path="res://textures/wheelSCAWY.png" id="8_d70ak"]
+[ext_resource type="AudioStream" uid="uid://bmusrx86m8is2" path="res://audio/CrEEP.mp3" id="9_d70ak"]
+[ext_resource type="PackedScene" uid="uid://pyicgvnruql4" path="res://volume_slider.tscn" id="10_woh6y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tylv2"]
+size = Vector3(62.45996, 2, 158.83588)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vxan"]
+albedo_texture = ExtResource("2_iiocm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+metallic = 1.0
+metallic_specular = 1.0
+metallic_texture = ExtResource("2_iiocm")
+
+[sub_resource type="BoxMesh" id="BoxMesh_4826q"]
+material = SubResource("StandardMaterial3D_lquwl")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_531e2"]
+size = Vector3(117.842285, 2, 76.114136)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d70ak"]
+albedo_texture = ExtResource("3_yxbqr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4826q"]
+albedo_texture = ExtResource("4_tylv2")
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rx2gv"]
+material = SubResource("StandardMaterial3D_4826q")
+size = Vector3(60, 2, 60)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_woh6y"]
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rx2gv"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("8_d70ak")
+
+[sub_resource type="QuadMesh" id="QuadMesh_doh3d"]
+
+[sub_resource type="Animation" id="Animation_m24tx"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.99999994)
+
+[sub_resource type="Animation" id="Animation_sdq7o"]
+resource_name = "spinnn"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.99999994, 0.26666668, 1, 0, 0, -0.68602777, 0.72757524, 0.5, 1, 0, 0, 0.99928814, 0.037725, 0.76666665, 1, 0, 0, 0.57258946, 0.81984216, 1, 1, 0, 0, -0.008848754, 0.9999608)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir6vj"]
+_data = {
+&"RESET": SubResource("Animation_m24tx"),
+&"spinnn": SubResource("Animation_sdq7o")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d70ak"]
+size = Vector3(21.57193, 6.727051, 19.555176)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_woh6y"]
+size = Vector3(58.812225, 18.621643, 21.809082)
+
+[node name="Node3D" type="Node3D" unique_id=289421692]
+script = ExtResource("1_5vxan")
+
+[node name="Player" parent="." unique_id=1598935049 instance=ExtResource("1_r4oei")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.56601715, 2.6822243, 58.94577)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=588482092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.809062, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=283485306]
+shape = SubResource("BoxShape3D_tylv2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=900305444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -0.24674988, -0.20123672, 30.709242)
+material_override = SubResource("StandardMaterial3D_5vxan")
+mesh = SubResource("BoxMesh_4826q")
+
+[node name="Floor" type="StaticBody3D" parent="Floor" unique_id=442590329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.971706, 2.1681576)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor" unique_id=1495727506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.247559, 0, 41.36087)
+shape = SubResource("BoxShape3D_tylv2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor" unique_id=1032590971]
+transform = Transform3D(0.99994296, 0.010681212, 0, -0.010681212, 0.99994296, 0, 0, 0, 2, -0.24674988, -0.20123672, 27.596727)
+material_override = SubResource("StandardMaterial3D_5vxan")
+mesh = SubResource("BoxMesh_4826q")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=314755252]
+transform = Transform3D(1, 0, 0, 0, 0.065228984, 0.9978702, 0, -0.9978702, 0.065228984, 0.07574129, 0.2124958, 42.26636)
+text = "you won but at what cost? 
+
+your wife left you, your dog left you. there is an emptiness in your soul that will never be filled by the monotony of spinning.
+
+and yet... the wheel calls to you."
+font_size = 120
+autowrap_mode = 3
+width = 2000.0
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=41350372]
+transform = Transform3D(1, 0, 0, 0, 0.08383438, 0.9964797, 0, -0.9964797, 0.08383438, 0, 20.79498, -26.603262)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=442843735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_531e2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=1568585235]
+transform = Transform3D(1, 0, 0, 0, 0.9998477, 0.008726203, 0, -0.017452406, 0.49992386, -0.24674988, -0.2815113, -6.699321)
+material_override = SubResource("StandardMaterial3D_d70ak")
+mesh = SubResource("BoxMesh_rx2gv")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=1492287329]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -31.286915, 7.872257, 1.6676865)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=713057085]
+transform = Transform3D(1, 0, 0, 0, 1, -8.351872e-23, 0, -8.351872e-23, 1, -28.921143, -0.43426514, -5.161814)
+shape = SubResource("BoxShape3D_531e2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=506780734]
+transform = Transform3D(2, 0, 0, 0, 0.9998477, 0.008726203, 0, -0.017452406, 0.49992386, -29.431046, -0.2815132, -6.6993213)
+material_override = SubResource("StandardMaterial3D_d70ak")
+mesh = SubResource("BoxMesh_rx2gv")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=1392672341]
+transform = Transform3D(-0.053782534, -0.99503744, 0.08371305, 0, 0.08383438, 0.9964797, -0.9985527, 0.053593203, -0.0045088255, 30.856014, 20.79498, 2.4297352)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=2021276164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_531e2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=1377250638]
+transform = Transform3D(1.9996014, 0.019938558, -0.00066373136, -0.039824717, 0.99964917, 0.008732812, 0.003350474, -0.017435716, 0.4999234, -23.87819, 2.8334923, -6.9613876)
+material_override = SubResource("StandardMaterial3D_d70ak")
+mesh = SubResource("BoxMesh_rx2gv")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=537596297]
+transform = Transform3D(0.9970577, -0.07077683, -0.029435873, 0.035183914, 0.081389, 0.9960613, -0.06810231, -0.9941663, 0.08363975, -0.50645065, 20.79498, 86.092285)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=1298927866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.43426514, -5.1618137)
+shape = SubResource("BoxShape3D_531e2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=269391938]
+transform = Transform3D(1.4942797, 0.04735462, 0.03663986, -0.09022569, 0.9811459, 0.09183496, -0.094800726, -0.1873773, 0.49012637, 1.8978803, -2.898941, -8.4847145)
+mesh = SubResource("BoxMesh_rx2gv")
+
+[node name="desk" parent="." unique_id=1489680260 instance=ExtResource("4_yxbqr")]
+transform = Transform3D(0.99983937, 0, -0.017923467, 0, 1, 0, 0.017923467, 0, 0.99983937, 0, 0, -20.356735)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=483307857]
+transform = Transform3D(1, 0, 0, 0, 0.021675278, 0.9997651, 0, -0.9997651, 0.021675278, 0.81030846, 17.841946, -13.327013)
+light_color = Color(0.9503483, 0.0006246409, 0.1599063, 1)
+light_energy = 16.0
+light_indirect_energy = 10.614
+light_size = 0.079
+light_specular = 0.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 1.09
+spot_range = 30.788853
+spot_angle = 49.580807
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1566726933]
+transform = Transform3D(0.96249175, -0.02608343, 0.2700545, -0.2712338, -0.06872871, 0.96005654, -0.006481074, -0.99729437, -0.07322551, 2.1724668, 15.61227, -9.904377)
+light_color = Color(0.52906674, 0.5290667, 0.5290667, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_size = 0.079
+light_negative = true
+light_specular = 0.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 1.09
+spot_range = 30.788853
+spot_angle = 49.580807
+
+[node name="Wheel" parent="." unique_id=1061563642 instance=ExtResource("7_531e2")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 9.119006, -20.800255)
+
+[node name="Actual Wheel2" type="StaticBody3D" parent="Wheel" unique_id=837547793]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wheel/Actual Wheel2" unique_id=1349092863]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.0009582713, 0)
+shape = SubResource("CylinderShape3D_woh6y")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wheel/Actual Wheel2" unique_id=1458154251]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 1, 0, 0, 0.8419113)
+material_override = SubResource("StandardMaterial3D_rx2gv")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_doh3d")
+
+[node name="Spin" type="AnimationPlayer" parent="Wheel/Actual Wheel2" unique_id=34953999]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ir6vj")
+
+[node name="ComputerExit" type="Area3D" parent="." unique_id=2093290153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9712706, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ComputerExit" unique_id=100516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28562927, -2.8635254, -9.277588)
+shape = SubResource("BoxShape3D_d70ak")
+
+[node name="TouchGrassExit" type="Area3D" parent="." unique_id=1144550127]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TouchGrassExit" unique_id=1430989184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5746307, 8.810822, 76.85054)
+shape = SubResource("BoxShape3D_woh6y")
+
+[node name="grasscamera" type="Camera3D" parent="." unique_id=739238652]
+transform = Transform3D(-0.9999876, 0, 0.0049741715, 0.00023171397, 0.9989144, 0.04658285, -0.0049687717, 0.04658342, -0.998902, 0, 6.3590746, 60.47719)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=1631826262]
+transform = Transform3D(-0.99920416, 0, 0.039887723, -0.0041278587, 0.9946308, -0.10340459, -0.03967356, -0.10348695, -0.99383926, 0, 13.246763, 65.16478)
+light_color = Color(0.64048964, 0.99999994, 0.69291514, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 0.0
+light_size = 0.257
+light_specular = 7.346
+spot_range = 58.723
+spot_angle = 76.00861
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1375421720]
+transform = Transform3D(-0.99962795, 0, 0.027276145, 0, 1, 0, -0.027276145, 0, -0.99962795, 0.4554832, 8.885406, 86.47948)
+text = "or you could stop spinning."
+font_size = 300
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1736117800]
+stream = ExtResource("9_d70ak")
+volume_db = -25.0
+unit_size = 59.48
+autoplay = true
+
+[node name="Control" type="Control" parent="." unique_id=318615802]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="volume_slider" parent="Control" unique_id=540994646 instance=ExtResource("10_woh6y")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89400005
+anchor_right = 0.99600005
+anchor_bottom = 0.12200001
+offset_left = 8.111938
+offset_top = 16.0
+offset_right = -11.39209
+offset_bottom = -0.056007385
+bus_name = "Master"
+
+[node name="Label" type="Label" parent="Control" unique_id=1764089961]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88400006
+anchor_top = 0.032
+anchor_right = 1.0
+anchor_bottom = 0.117000006
+offset_left = 10.631958
+offset_top = 0.26399994
+offset_right = -5.0
+offset_bottom = 0.18399811
+text = "Master Volume"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="ComputerExit" to="." method="_on_computer_exit_body_entered"]
+[connection signal="body_exited" from="ComputerExit" to="." method="_on_computer_exit_body_exited"]
+[connection signal="body_entered" from="TouchGrassExit" to="." method="_on_touch_grass_exit_body_entered"]
+[connection signal="body_exited" from="TouchGrassExit" to="." method="_on_touch_grass_exit_body_exited"]
